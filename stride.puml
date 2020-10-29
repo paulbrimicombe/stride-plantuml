@@ -1,0 +1,31 @@
+!function Stride($trust_value = "", $stride_code = "", $message = "", $aggregated_risks = "")
+    !$trust_string = "<back:white><color:black> " + $trust_value + " </color></back>"
+    !$stride_string ="" 
+    !if (%strpos($stride_code, "S")>=0)
+        !$stride_string = $stride_string + "<color:#blue>S</color>"
+    !endif
+    !if (%strpos($stride_code, "T")>=0)
+            !$stride_string = $stride_string + "<color:#green>T</color>"
+    !endif
+    !if (%strpos($stride_code, "R")>=0)
+            !$stride_string = $stride_string + "<color:#orange>R</color>"
+    !endif
+    !if (%strpos($stride_code, "I")>=0)
+            !$stride_string = $stride_string + "<color:#yellow>I</color>"
+    !endif
+    !if (%strpos($stride_code, "D")>=0)
+            !$stride_string = $stride_string + "<color:#red>D</color>"
+    !endif
+    !if (%strpos($stride_code, "E")>=0)
+            !$stride_string = $stride_string + "<color:#purple>E</color>"
+    !endif
+
+    !$risk_string = ""
+    !$index = %strlen($aggregated_risks) - 1
+    !while $index >= 0
+        !$risk_code = %substr($aggregated_risks, $index, $index + 1)
+        !$risk_string = " R" + $risk_code + " " + $risk_string
+        !$index = $index - 1
+    !endwhile
+    !return  $trust_string + " " + $stride_string + " <back:purple>" + $risk_string + "</back>\n<b>" + $message + "</b>"
+!endfunction

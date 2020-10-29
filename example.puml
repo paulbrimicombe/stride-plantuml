@@ -1,0 +1,6 @@
+@startuml Example using STRIDE
+!import stride.puml
+
+!$label = Stride($message="Hello")
+Bob -> Alice: $label
+@enduml

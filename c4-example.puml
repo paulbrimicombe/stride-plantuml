@@ -1,11 +1,12 @@
 @startuml
 !include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Component.puml
+' !include https://raw.githubusercontent.com/paulbrimicombe/stride-plantuml/main/stride.puml
 !include ./stride.puml
 
 LAYOUT_WITH_LEGEND()
 
-Container(spa, '=== $Stride("3:5", "SE", "R1,R2") \n=== Single Page Application', "javascript and react", "Provides all the internet banking functionality to customers via their web browser.", s)
-Container(ma, "Mobile App", "Xamarin", "Provides a limited subset ot the internet banking functionality to customers via their mobile mobile device.")
+Container(spa, <size:5>$TrustValueRatio("3:5") $Stride("SE") $AggregatedRisks("R1:R2")</size> \n=== Single Page Application, "javascript and react", "Provides all the internet banking functionality to customers via their web browser.", s)
+Container(ma, <size:5>$TrustValueRatio("3:5") $Stride("SE") $AggregatedRisks("R1:R2")</size> \n=== Mobile App, "Xamarin", "Provides a limited subset ot the internet banking functionality to customers via their mobile mobile device.")
 Container(db, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
 System_Ext(mbs, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
 
@@ -21,7 +22,7 @@ Container_Boundary(api, "API Application") {
     Rel(mbsfacade, mbs, "Uses", "XML/HTTPS")
 }
 
-Rel(spa, sign, $Stride("", "S") Uses, "JSON/HTTPS")
+Rel(spa, sign, $Stride("S") Uses, "JSON/HTTPS")
 Rel(spa, sign, "Uses")
 Rel(spa, accounts, "Uses", "JSON/HTTPS")
 
@@ -30,7 +31,9 @@ Rel(ma, accounts, "Uses", "JSON/HTTPS")
 
 $RiskTable() [
   === Aggregated Risks
-  $AddRisk("R1", "Details of aggregated risk number 1.\nThis could be a very long description\nor a very short one!")
-  $AddRisk("R2", "Details of aggregated risk number 2")
+  ----
+  $AggregatedRisk("R1") Details of aggregated risk number 1. This could be a very long description or a very short one!
+  ----
+  $AggregatedRisk("R2") Details of aggregated risk number 2
 ]
 @enduml

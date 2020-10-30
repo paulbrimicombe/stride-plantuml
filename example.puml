@@ -2,11 +2,14 @@
 ' !include https://raw.githubusercontent.com/paulbrimicombe/stride-plantuml/main/stride.puml
 !include ./stride.puml
 
-Bob -> Alice: $Stride("5:2", "SRDE", "R1,R2") "Hello"
+Bob -> Alice: $TrustValueRatio("5:2") $Stride("STRIDE") $AggregatedRisks("R1:R2") "Hello"
 
 $RiskTable() [
   === Aggregated Risks
-  $AddRisk("R1", "Details of aggregated risk number 1.\nThis could be a very long description\nor a very short one!")
-  $AddRisk("R2", "Details of aggregated risk number 2")
+  ----
+  $AggregatedRisk("R1") Details of aggregated risk number 1.
+  This could be a very long description or a very short one!
+  ----
+  $AggregatedRisk("R2") Details of aggregated risk number 2
 ]
 @enduml

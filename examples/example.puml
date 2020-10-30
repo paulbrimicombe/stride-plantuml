@@ -1,6 +1,5 @@
 @startuml Example using STRIDE
-' !include https://raw.githubusercontent.com/paulbrimicombe/stride-plantuml/main/stride.puml
-!include ./stride.puml
+!include https://raw.githubusercontent.com/paulbrimicombe/stride-plantuml/main/stride.puml
 
 Bob -> Alice: $TrustValueRatio("5:2") $Stride("STRIDE") $AggregatedRisks("R1:R2") "Hello"
 

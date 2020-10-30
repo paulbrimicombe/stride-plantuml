@@ -17,7 +17,6 @@ Here is a basic usage example:
 
 ![A basic example](./examples/example.svg)
 
-Here is an example C4 model diagram using the [C4-PlantUML](https://github.com/RicardoNiepel/C4-PlantUML) library.
+Here is an example C4 model diagram using the [C4-PlantUML](https://github.com/RicardoNiepel/C4-PlantUML) library. The labels are not intended to indicate actual threats, merely to demonstrate the functionality of this library.
 
 ![a C4 model example](./examples/c4-example.svg)
-

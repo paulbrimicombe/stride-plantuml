@@ -1,4 +1,4 @@
-@startuml
+@startuml C4 diagram example
 !include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Component.puml
 ' !include https://raw.githubusercontent.com/paulbrimicombe/stride-plantuml/main/stride.puml
 !include ./stride.puml

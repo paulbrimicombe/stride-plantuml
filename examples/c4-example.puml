@@ -4,29 +4,29 @@
 
 LAYOUT_WITH_LEGEND()
 
-Container(spa, <size:5>$TrustValueRatio("3:5") $Stride("SE") $AggregatedRisks("R1:R2")</size> \n=== Single Page Application, "javascript and react", "Provides all the internet banking functionality to customers via their web browser.", s)
-Container(ma, Mobile App, "Xamarin", "Provides a limited subset ot the internet banking functionality to customers via their mobile mobile device.")
-Container(db, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
+Container(spa, <size:5>$TrustValueRatio("2:5") $Stride("SE") $AggregatedRisks("R1:R2")</size> \n=== Single Page Application, "javascript and react", "Provides all the internet banking functionality to customers via their web browser.", s)
+Container(ma, <size:5>$TrustValueRatio("1:4") $Stride("D")</size>\n=== Mobile App, "Xamarin", "Provides a limited subset ot the internet banking functionality to customers via their mobile mobile device.")
+Container(db, <size:5>$TrustValueRatio("3:5") $Stride("T")</size>\n=== Database, "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
 System_Ext(mbs, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
 
-Container_Boundary(api, "API Application") {
-    Component(sign, "Sign In Controller", "MVC Rest Controlle", "Allows users to sign in to the internet banking system")
-    Component(accounts, "Accounts Summary Controller", "MVC Rest Controlle", "Provides customers with a summory of their bank accounts")
+Container_Boundary(api, <size:5>$TrustValueRatio("2:5") $Stride("RI")</size>\n=== API Application) {
+    Component(sign, "Sign In Controller", "MVC Rest Controller", "Allows users to sign in to the internet banking system")
+    Component(accounts, "Accounts Summary Controller", "MVC Rest Controller", "Provides customers with a summory of their bank accounts")
     Component(security, "Security Component", "Spring Bean", "Provides functionality related to singing in, changing passwords, etc.")
     Component(mbsfacade, "Mainframe Banking System Facade", "Spring Bean", "A facade onto the mainframe banking system.")
 
     Rel(sign, security, "Uses")
     Rel(accounts, mbsfacade, "Uses")
-    Rel(security, db, "Read & write to", "JDBC")
-    Rel(mbsfacade, mbs, "Uses", "XML/HTTPS")
+    Rel(security, db, $AggregatedRisk("R1") Read & write to, "JDBC")
+    Rel(mbsfacade, mbs, $AggregatedRisk("R1") Uses, "XML/HTTPS")
 }
 
-Rel(spa, sign, $Stride("S") Uses, "JSON/HTTPS")
-Rel(spa, sign, "Uses")
-Rel(spa, accounts, "Uses", "JSON/HTTPS")
+Rel(spa, sign, $AggregatedRisk("R1") Uses, "JSON/HTTPS")
+Rel(spa, sign, $AggregatedRisk("R1") Uses)
+Rel(spa, accounts, $AggregatedRisk("R2") Uses, "JSON/HTTPS")
 
-Rel(ma, sign, "Uses", "JSON/HTTPS")
-Rel(ma, accounts, "Uses", "JSON/HTTPS")
+Rel(ma, sign, $AggregatedRisk("R2") Uses , "JSON/HTTPS")
+Rel(ma, accounts, $AggregatedRisk("R2") Uses, "JSON/HTTPS")
 
 $RiskTable() [
   === Aggregated Risks

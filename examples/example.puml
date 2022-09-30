@@ -1,5 +1,5 @@
 @startuml Example using STRIDE
-!include https://raw.githubusercontent.com/paulbrimicombe/stride-plantuml/main/stride.puml
+!include https://raw.githubusercontent.com/paulbrimicombe/stride-plantuml/fix-spacing-on-stride/stride.puml
 
 Bob -> Alice: $TrustValueRatio("5:2") $Stride("STRIDE") $AggregatedRisks("R1:R2") "Hello"
 

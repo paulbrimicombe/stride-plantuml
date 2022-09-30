@@ -27,19 +27,19 @@
 !function $Stride($stride_code)
   !$stride_string = ""
   !if (%strpos($stride_code, "S")>=0)
-    !$stride_string = $stride_string + "<color:#blue><back:#lightblue> S </back></color>"
+    !$stride_string = $stride_string + "<color:#blue><back:#lightblue>  S  </back></color>"
   !endif
   !if (%strpos($stride_code, "T")>=0)
-    !$stride_string = $stride_string + "<color:#green><back:#lightgreen> T </back></color>"
+    !$stride_string = $stride_string + "<color:#green><back:#lightgreen>  T  </back></color>"
   !endif
   !if (%strpos($stride_code, "R")>=0)
-    !$stride_string = $stride_string + "<color:#brown><back:#orange> R </back></color>"
+    !$stride_string = $stride_string + "<color:#brown><back:#orange>  R  </back></color>"
   !endif
   !if (%strpos($stride_code, "I")>=0)
-    !$stride_string = $stride_string + "<color:#darkgoldenrod><back:#yellow> I </back></color>"
+    !$stride_string = $stride_string + "<color:#darkgoldenrod><back:#yellow>  I  </back></color>"
   !endif
   !if (%strpos($stride_code, "D")>=0)
-    !$stride_string = $stride_string + "<color:#firebrick><back:#pink> D </back></color>"
+    !$stride_string = $stride_string + "<color:#firebrick><back:#pink>  D  </back></color>"
   !endif
   !if (%strpos($stride_code, "E")>=0)
     !$stride_string = $stride_string + "<color:#purple><back:#plum> E </back></color>"

@@ -57,7 +57,3 @@ skinparam card {
 hide stereotype
 card risks <<risk_table>>
 !endprocedure
-
-!procedure $AddRisk($risk_id, $text)
-| <back:#darkorchid><font:monospace><color:#white><b> $risk_id </b></color></font></back> | $text |
-!endprocedure
